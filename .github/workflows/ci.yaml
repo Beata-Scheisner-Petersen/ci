@@ -24,5 +24,9 @@ jobs:
           java-version: "17"
           distribution: "temurin"
           cache: "maven"
-      - name: Build and run tests
-        run: mvn -B package
+      # Run tests
+      - name: Run tests
+        run: mvn -B test
+      #Build application
+      - name: Run application
+        run: mvn -B package -DskipTests
