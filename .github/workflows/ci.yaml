@@ -1,0 +1,28 @@
+name: CI
+on:
+  push:
+    branches:
+      - main
+      - master
+      - test
+  pull_request:
+    branches:
+      - main
+      - master
+      - test
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      # check out code
+      - name: check out the code
+        uses: actions/checkout@v4
+      # set up our environment
+      - name: set up Java 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: "17"
+          distribution: "temurin"
+          cache: "maven"
+      - name: Build and run tests
+        run: mvn -B package
