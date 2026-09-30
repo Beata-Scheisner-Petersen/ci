@@ -31,4 +31,4 @@ jobs:
       - name: Run application
         run: mvn -B package -DskipTests
         env:
-          password: abed
+          password: abeded
